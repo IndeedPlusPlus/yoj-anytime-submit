@@ -14,7 +14,7 @@ try:
 except:
 	print >> sys.stderr, "ERROR: Failed to log in."
 assignment_id = int(raw_input("Assignment ID: "))
-filename = raw_input("File to send: ");
+filename = raw_input("File to send: ").decode(sys.stdin.encoding);
 if not filename:
 	print >> sys.stderr, "ERROR: You must enter a file name"
 print >> sys.stderr, "Submitting your work, please wait."
