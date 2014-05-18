@@ -1,3 +1,8 @@
+1.0.3 (May. 18 2014)
+======
+
++ Will now normalize the name of submitted file to homework(.extension) in POST content
+
 1.0.2 (May. 18 2014)
 ====
 
