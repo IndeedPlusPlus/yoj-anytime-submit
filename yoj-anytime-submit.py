@@ -13,10 +13,12 @@ try:
 	print >> sys.stderr, "logged in as %s"%r.cookies['yoj_user_id']
 except:
 	print >> sys.stderr, "ERROR: Failed to log in."
+	quit()
 assignment_id = int(raw_input("Assignment ID: "))
 filename = raw_input("File to send: ").decode(sys.stdin.encoding);
 if not filename:
 	print >> sys.stderr, "ERROR: You must enter a file name"
+	quit()
 print >> sys.stderr, "Submitting your work, please wait."
 r = s.post(web_root + '/assignment.php?id=%d'%assignment_id, data = {'uploadthisafile':'uploadthisafile'}, files = {'file' : open(filename, 'rb') })
 r.raise_for_status()
