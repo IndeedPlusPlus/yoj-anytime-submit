@@ -26,6 +26,5 @@ if not os.path.isfile(filename):
 print >> sys.stderr, "Submitting your work, please wait."
 r = s.post(web_root + '/assignment.php?id=%d'%assignment_id, data = {'uploadthisafile':'uploadthisafile'}, files = {'file' : open(filename, 'rb') })
 r.raise_for_status()
-print r.text
 print >> sys.stderr, "Your work has been submitted."
 
