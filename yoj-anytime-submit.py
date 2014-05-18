@@ -24,7 +24,9 @@ if not os.path.isfile(filename):
 	print >> sys.stderr, "ERROR: %s does not exist or is not a file."
 	quit()
 print >> sys.stderr, "Submitting your work, please wait."
-r = s.post(web_root + '/assignment.php?id=%d'%assignment_id, data = {'uploadthisafile':'uploadthisafile'}, files = {'file' : open(filename, 'rb') })
+file_extension = os.path.splitext(filename)[1]
+normalized_filename = "homework" + file_extension
+r = s.post(web_root + '/assignment.php?id=%d'%assignment_id, data = {'uploadthisafile':'uploadthisafile'}, files = {'file' : (normalized_filename, open(filename, 'rb') ) })
 r.raise_for_status()
 print >> sys.stderr, "Your work has been submitted."
 
